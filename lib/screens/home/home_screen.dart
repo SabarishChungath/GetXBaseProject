@@ -4,6 +4,7 @@ import 'package:getx_base_project/screens/home/home_controller.dart';
 
 class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
+  static const routeName = "/home_screen";
 
   @override
   Widget build(BuildContext context) {
