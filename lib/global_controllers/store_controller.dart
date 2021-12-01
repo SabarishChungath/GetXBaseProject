@@ -5,7 +5,9 @@ import 'package:getx_base_project/models/category.dart';
 class StoreController extends GetxController {
   List<Category> _categories = [];
 
-  set categories(value) {
+  List<Category> get categories => _categories;
+
+  set categories(List<Category> value) {
     _categories = value;
     update();
   }

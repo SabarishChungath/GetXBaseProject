@@ -19,7 +19,7 @@ class SplashController extends GetxController {
 
   nextScreen() async {
     await initialCall();
-    Future.delayed(
-        const Duration(seconds: 1), () => Get.toNamed(HomeScreen.routeName));
+    Future.delayed(const Duration(seconds: 1),
+        () => Get.offAndToNamed(HomeScreen.routeName));
   }
 }

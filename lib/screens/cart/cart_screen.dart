@@ -6,6 +6,19 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: Colors.orange[100],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Text("Cart Screen"),
+          ],
+        ),
+      ),
+    );
   }
 }
