@@ -4,6 +4,7 @@ import 'package:getx_base_project/api_repository/api_service.dart';
 import 'package:getx_base_project/bindings/home_binding.dart';
 import 'package:getx_base_project/global_controllers/store_controller.dart';
 import 'package:getx_base_project/screens/about/about_screen.dart';
+import 'package:getx_base_project/screens/splash/splash_binding.dart';
 
 import 'screens/cart/index.dart';
 import 'screens/category/index.dart';
@@ -31,6 +32,7 @@ class AppWidget extends StatelessWidget {
         GetPage(
           name: SplashScreen.routeName,
           page: () => const SplashScreen(),
+          binding: SplashBinding(),
         ),
         GetPage(
             name: HomeScreen.routeName,
