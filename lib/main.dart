@@ -5,6 +5,7 @@ import 'package:getx_base_project/bindings/home_binding.dart';
 import 'package:getx_base_project/global_controllers/store_controller.dart';
 import 'package:getx_base_project/screens/about/about_screen.dart';
 import 'package:getx_base_project/screens/splash/splash_binding.dart';
+import 'package:getx_base_project/global_controllers/loading_controller.dart';
 
 import 'screens/cart/index.dart';
 import 'screens/category/index.dart';
@@ -17,8 +18,9 @@ void main() {
 }
 
 void initServices() {
-  Get.putAsync(() => ApiService().init());
-  Get.lazyPut(() => StoreController());
+  Get.putAsync<ApiService>(() => ApiService().init());
+  Get.lazyPut<StoreController>(() => StoreController());
+  Get.lazyPut<LoadingController>(() => LoadingController());
 }
 
 class AppWidget extends StatelessWidget {
@@ -28,6 +30,19 @@ class AppWidget extends StatelessWidget {
     return GetMaterialApp(
       home: const SplashScreen(),
       initialBinding: RootBinding(),
+      builder: (_, child) {
+        return GetBuilder<LoadingController>(builder: (_) {
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              child!,
+              Visibility(
+                  visible: Get.find<LoadingController>().isLoading,
+                  child: const CircularProgressIndicator())
+            ],
+          );
+        });
+      },
       getPages: [
         GetPage(
           name: SplashScreen.routeName,
